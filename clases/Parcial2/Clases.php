@@ -178,7 +178,7 @@ class Country {
     }
     
     public function update () {
-        $sql= "UPDATE ". self::table." SET name = '".$this->name."',  description = '".$this->description."'";
+        $sql= "UPDATE ". self::table." SET name = '".$this->name."',  description = '".$this->description."' WHERE id = '".$this->id."'";
         $res = mysqli_query(conectar::con(), $sql);
         return $res;
     }

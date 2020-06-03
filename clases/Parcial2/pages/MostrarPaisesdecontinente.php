@@ -17,7 +17,8 @@
 
 }
  if (isset($_GET["save"]) && !$actualPais) {
- 
+  $nuevoPais = new Country(null, $_POST["name"], $_POST["description"], true);
+  array_push($Continentes[$keyContinente]->countries, $nuevoPais);
  }
 
 if (isset($_GET["action"])) {
@@ -140,7 +141,7 @@ if (isset($_GET["action"])) {
   if (isset($_GET["action"])) {
 
     if ($_GET["action"] == "new" || $_GET["action"] == "edit") {
-      $id =  $_GET["id"] ? $_GET["id"] : 'new';
+      $id = isset($_GET["id"])  ? $_GET["id"] : 'new';
   ?>
       <div class="col-6">
         <form action="<?php echo 'index.php?menu=pais&c='.$c.'&action='.$_GET["action"].'&id='.$id.'&save=true'; ?>" method="POST">
